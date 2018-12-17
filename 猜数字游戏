@@ -1,0 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void menu()
+{
+	printf("*******************\n");
+	printf("******1. play******\n");
+	printf("******0. exit******\n");
+	printf("*******************\n");
+
+}
+void game()
+{
+	int key = 0;
+	key = rand() % 100 + 1;//这里是为了让key产生1到100的数
+	int i = 0;
+	while (1)
+	{
+		printf("请输入数字：>");
+		scanf("%d", &i);
+		if (key == i)
+		{
+			printf("恭喜你找到了\n");
+			break;
+		}
+		if (key > i)
+		{
+			printf("数字太小\n");
+		}
+		if (key < i)
+		{
+			printf("数字太大\n");
+		}
+	}
+}
+int main()
+{
+	srand((unsigned)time(NULL));
+	int a = 0;
+    do
+	{
+		menu();
+		printf("请输入:>\n");
+		scanf("%d", &a);
+		switch (a)
+		{
+		case 1:
+			game();
+		case 0:
+			break;
+		default:
+			printf("输入错误，请重新输入\n");
+		}
+	} while (a);
+	system("pause");
+	return 0;
+}
